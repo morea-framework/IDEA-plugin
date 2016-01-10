@@ -13,8 +13,6 @@ morea_id: outcome-$template
 morea_type: outcome
 title: ""
 published: True
-#morea_start_date: "2016-01-12"
-#morea_end_date: "2016-01-13"
 #morea_sort_order: 270
 morea_labels:
 ---

@@ -34,9 +34,9 @@ public class MoreaFileTemplateUtil {
 
   public static List<FileTemplate> getApplicableTemplates(Condition<FileTemplate> filter) {
     List<FileTemplate> applicableTemplates = new SmartList<FileTemplate>();
-    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getInstance().getInternalTemplates(),
+    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getDefaultInstance().getInternalTemplates(),
         filter));
-    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getInstance().getAllTemplates(), filter));
+    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getDefaultInstance().getAllTemplates(), filter));
     return applicableTemplates;
   }
 
