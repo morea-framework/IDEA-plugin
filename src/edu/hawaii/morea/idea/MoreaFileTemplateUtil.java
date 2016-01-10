@@ -34,9 +34,9 @@ public class MoreaFileTemplateUtil {
 
   public static List<FileTemplate> getApplicableTemplates(Condition<FileTemplate> filter) {
     List<FileTemplate> applicableTemplates = new SmartList<FileTemplate>();
-    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getDefaultInstance().getInternalTemplates(),
+    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getInstance().getInternalTemplates(),
         filter));
-    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getDefaultInstance().getAllTemplates(), filter));
+    applicableTemplates.addAll(ContainerUtil.findAll(FileTemplateManager.getInstance().getAllTemplates(), filter));
     return applicableTemplates;
   }
 
@@ -49,10 +49,22 @@ public class MoreaFileTemplateUtil {
 
   @NotNull
   public static Icon getTemplateIcon(String name) {
-    if (name.startsWith("MD")) {
+    if (name.startsWith("ASSESSMENT")) {
+      return AllIcons.FileTypes.Manifest;
+    }
+    else if (name.startsWith("EXPERIENCE")) {
+      return AllIcons.FileTypes.Custom;
+    }
+    else if (name.startsWith("MODULE")) {
+      return AllIcons.FileTypes.Json;
+    }
+    else if (name.startsWith("OUTCOME")) {
+      return AllIcons.FileTypes.Archive;
+    }
+    else if (name.startsWith("READING")) {
       return AllIcons.FileTypes.Text;
     }
-    return MoreaIcons.Meteor;
+    return MoreaIcons.Morea;
   }
 
 }

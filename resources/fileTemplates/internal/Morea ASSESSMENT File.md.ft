@@ -9,20 +9,18 @@
 #end
 #set ( $template = $template.substring(0,1).toLowerCase()+$template.substring(1) )
 ---
-morea_id: module-$template
-morea_type: module
+morea_id: assessment-$template
+morea_type: assessment
 title: ""
 published: True
-morea_coming_soon: False
-morea_highlight: False
-#morea_start_date: "2016-01-12"
-#morea_end_date: "2016-01-13"
-morea_outcomes:
-morea_readings:
-morea_experiences:
-morea_assessments:
-morea_sort_order:
-morea_icon_url:
+#morea_start_date: "2016-01-12T12:00:00"
+morea_outcomes_assessed:
 morea_labels:
+morea_chartjs_caption:   |
+  This assessment will verify that students understand how TBD.
+morea_chartjs_labels: '["Excellent", "Satisfactory", "Borderline", "Unsatisfactory"]'
+morea_chartjs_data: "[0, 0, 0, 0]"
 ---
+
+{%  include assessment-chartjs.html  %}
 

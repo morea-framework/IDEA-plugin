@@ -22,6 +22,20 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+
+    <internalFileTemplate name="Morea ASSESSMENT File"/>
+    <internalFileTemplate name="Morea EXPERIENCE File"/>
+    <internalFileTemplate name="Morea MODULE File"/>
+    <internalFileTemplate name="Morea OUTCOME File"/>
+    <internalFileTemplate name="Morea READING File"/>
+
+    <applicationService serviceInterface="edu.hawaii.morea.settings.MoreaTemplateSettings"
+                        serviceImplementation="edu.hawaii.morea.settings.MoreaTemplateSettings"/>
+    <projectConfigurable
+        instance="edu.hawaii.morea.settings.MoreaTemplateConfigurable"
+        id="settings.morea.template"
+        parentId="Settings.JavaScript"
+        order="last, after settings.phonegap"/>
   </extensions>
 
   <actions>

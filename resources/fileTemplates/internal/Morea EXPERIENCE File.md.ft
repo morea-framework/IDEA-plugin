@@ -9,20 +9,11 @@
 #end
 #set ( $template = $template.substring(0,1).toLowerCase()+$template.substring(1) )
 ---
-morea_id: module-$template
-morea_type: module
+morea_id: experience-$template
+morea_type: experience
 title: ""
 published: True
-morea_coming_soon: False
-morea_highlight: False
-#morea_start_date: "2016-01-12"
-#morea_end_date: "2016-01-13"
-morea_outcomes:
-morea_readings:
-morea_experiences:
-morea_assessments:
-morea_sort_order:
-morea_icon_url:
+morea_summary: ""
 morea_labels:
 ---
 

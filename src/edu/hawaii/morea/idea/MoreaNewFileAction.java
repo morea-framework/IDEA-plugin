@@ -23,7 +23,7 @@ public class MoreaNewFileAction extends CreateFileFromTemplateAction {
 
   public MoreaNewFileAction() {
     super("Create new Morea File", "Morea files",
-        MoreaIcons.Meteor);
+        MoreaIcons.Morea);
   }
   @Override
   protected void buildDialog(Project project, PsiDirectory psiDirectory, CreateFileFromTemplateDialog.Builder builder) {

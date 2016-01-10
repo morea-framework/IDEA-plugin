@@ -17,7 +17,7 @@ import javax.swing.Icon;
 
 public class MoreaIcons {
 
-  public static final Icon Meteor = load("/icons/morea-16x16.png");
+  public static final Icon Morea = load("/icons/morea-16x16.png");
 
   private static Icon load(String path) {
     return IconLoader.getIcon(path, MoreaIcons.class);
