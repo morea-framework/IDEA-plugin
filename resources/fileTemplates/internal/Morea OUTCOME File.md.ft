@@ -13,7 +13,7 @@ morea_id: outcome-$template
 morea_type: outcome
 title: ""
 published: True
-#morea_sort_order: 270
 morea_labels:
+#morea_sort_order: 270
 ---
 

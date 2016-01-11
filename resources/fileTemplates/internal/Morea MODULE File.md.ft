@@ -15,14 +15,16 @@ title: ""
 published: True
 morea_coming_soon: False
 morea_highlight: False
-#morea_start_date: "2016-01-12"
-#morea_end_date: "2016-01-13"
+morea_prerequisites:
 morea_outcomes:
 morea_readings:
 morea_experiences:
 morea_assessments:
-morea_sort_order:
+morea_summary:
 morea_icon_url:
 morea_labels:
+morea_sort_order:
+#morea_start_date: "2016-01-12"
+#morea_end_date: "2016-01-13"
 ---
 
