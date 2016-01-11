@@ -1,8 +1,8 @@
 <idea-plugin version="2">
-  <id>edu.hawaii.morea.plugin</id>
+  <id>edu.hawaii.morea.idea.plugin</id>
   <name>Morea Plugin</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="cmoore@hawaii.edu" url="http://morea-framework.github.io">CamMoore</vendor>
 
   <description><![CDATA[
       IDEA plugin for supporting Morea web site development.<br>
@@ -18,16 +18,34 @@
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <!-- uncomment to enable plugin in all products
   <depends>com.intellij.modules.lang</depends>
-  -->
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+
+    <internalFileTemplate name="Morea ASSESSMENT File"/>
+    <internalFileTemplate name="Morea EXPERIENCE File"/>
+    <internalFileTemplate name="Morea MODULE File"/>
+    <internalFileTemplate name="Morea OUTCOME File"/>
+    <internalFileTemplate name="Morea PREREQUISITE File"/>
+    <internalFileTemplate name="Morea READING File"/>
+
+    <applicationService serviceInterface="edu.hawaii.morea.settings.MoreaTemplateSettings"
+                        serviceImplementation="edu.hawaii.morea.settings.MoreaTemplateSettings"/>
+    <projectConfigurable
+        instance="edu.hawaii.morea.settings.MoreaTemplateConfigurable"
+        id="settings.morea.template"
+        parentId="Settings.JavaScript"
+        order="last, after settings.phonegap"/>
   </extensions>
 
   <actions>
     <!-- Add your actions here -->
+    <action id="Morea.NewFile" class="edu.hawaii.morea.idea.MoreaNewFileAction"
+            text="Morea File" description="Create new Morea File">
+      <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFile"/>
+    </action>
+
   </actions>
 
 </idea-plugin>

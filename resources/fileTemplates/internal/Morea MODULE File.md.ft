@@ -1,0 +1,30 @@
+#set($fileNameWithoutExtension = $NAME)
+#if ($NAME.indexOf(".")>0)
+    #set($fileNameWithoutExtension = $NAME.substring(0,$NAME.indexOf(".")))
+#end
+#set($template = "")
+#foreach($str in $fileNameWithoutExtension.split("_"))
+    #set($str = $str.substring(0,1).toUpperCase()+$str.substring(1))
+    #set($template = $template + $str)
+#end
+#set ( $template = $template.substring(0,1).toLowerCase()+$template.substring(1) )
+---
+morea_id: module-$template
+morea_type: module
+title: ""
+published: True
+morea_coming_soon: False
+morea_highlight: False
+morea_prerequisites:
+morea_outcomes:
+morea_readings:
+morea_experiences:
+morea_assessments:
+morea_summary:
+morea_icon_url:
+morea_labels:
+morea_sort_order:
+#morea_start_date: "2016-01-12"
+#morea_end_date: "2016-01-13"
+---
+
