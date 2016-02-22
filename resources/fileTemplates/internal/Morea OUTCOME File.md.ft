@@ -9,7 +9,7 @@
 #end
 #set ( $template = $template.substring(0,1).toLowerCase()+$template.substring(1) )
 ---
-morea_id: outcome-$template
+morea_id: $template
 morea_type: outcome
 title: ""
 published: True

@@ -1,7 +1,7 @@
 <idea-plugin version="2">
   <id>edu.hawaii.morea.idea.plugin</id>
   <name>Morea Plugin</name>
-  <version>1.0</version>
+  <version>1.0.2</version>
   <vendor email="cmoore@hawaii.edu" url="http://morea-framework.github.io">CamMoore</vendor>
 
   <description><![CDATA[
@@ -10,6 +10,8 @@
 
   <change-notes><![CDATA[
       2016-01-10: Initial version.<br>
+      2016-01-31: Starting on parsing ids.<br>
+      2016-02-22: Changed the morea_ids to not include the type.
     ]]>
   </change-notes>
 
@@ -45,7 +47,9 @@
             text="Morea File" description="Create new Morea File">
       <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFile"/>
     </action>
-
+    <action class="edu.hawaii.morea.idea.MoreaReadingIdAction" id="Morea.ReadingId" text="Add Reading Id" description="Add Reading Id">
+      <add-to-group group-id="EditorPopupMenu" anchor="before" relative-to-action="$Copy"/>
+    </action>
   </actions>
 
 </idea-plugin>

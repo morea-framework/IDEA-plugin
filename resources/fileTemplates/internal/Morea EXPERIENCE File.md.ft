@@ -9,7 +9,7 @@
 #end
 #set ( $template = $template.substring(0,1).toLowerCase()+$template.substring(1) )
 ---
-morea_id: experience-$template
+morea_id: $template
 morea_type: experience
 title: ""
 published: True

@@ -14,6 +14,7 @@ import com.intellij.ide.actions.CreateFileFromTemplateDialog;
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiFile;
 
 /**
  * @author Cam Moore
