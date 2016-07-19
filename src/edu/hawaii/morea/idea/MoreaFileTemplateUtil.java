@@ -5,6 +5,7 @@ import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.Condition;
+import com.intellij.openapi.wm.impl.content.MoreIcon;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.search.PsiSearchHelper;
 import com.intellij.util.SmartList;
@@ -36,7 +37,7 @@ public class MoreaFileTemplateUtil {
   public final static String MODULE = "module";
   public final static String OUTCOME = "outcome";
   public final static String READING = "reading";
-  public final static String EXERCISE = "exercise";
+  public final static String EXPERIENCE = "experience";
   public final static String ASSESSMENT = "assessment";
   public final static String PREREQUISITE = "prerequisite";
 
@@ -44,7 +45,6 @@ public class MoreaFileTemplateUtil {
 
   public static List<FileTemplate> getMoreaTemplates() {
     return getApplicableTemplates(new Condition<FileTemplate>() {
-
       @Override
       public boolean value(FileTemplate fileTemplate) {
         return fileTemplate.getName().startsWith(MOREA_TEMPLATE_PREFIX);
@@ -70,19 +70,17 @@ public class MoreaFileTemplateUtil {
   @NotNull
   public static Icon getTemplateIcon(String name) {
     if (name.startsWith("ASSESSMENT")) {
-      return AllIcons.FileTypes.Manifest;
-    }
-    else if (name.startsWith("EXPERIENCE")) {
-      return AllIcons.FileTypes.Custom;
-    }
-    else if (name.startsWith("MODULE")) {
-      return AllIcons.FileTypes.Json;
-    }
-    else if (name.startsWith("OUTCOME")) {
-      return AllIcons.FileTypes.Archive;
-    }
-    else if (name.startsWith("READING")) {
-      return AllIcons.FileTypes.Text;
+      return MoreaIcons.Assessment;
+    } else if (name.startsWith("EXPERIENCE")) {
+      return MoreaIcons.Experience;
+    } else if (name.startsWith("MODULE")) {
+      return MoreaIcons.Module;
+    } else if (name.startsWith("OUTCOME")) {
+      return MoreaIcons.Outcome;
+    } else if (name.startsWith("READING")) {
+      return MoreaIcons.Reading;
+    } else if (name.startsWith("PREREQUISITE")) {
+      return MoreaIcons.Prerequisite;
     }
     return MoreaIcons.Morea;
   }
@@ -108,14 +106,13 @@ public class MoreaFileTemplateUtil {
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(psiFile.getVirtualFile().getInputStream()));
       String line = reader.readLine();
-      while(line != null && !line.startsWith("morea_id")) {
+      while (line != null && !line.startsWith("morea_id")) {
         line = reader.readLine();
       }
       if (line != null) {
         return line.substring(line.indexOf(' ') + 1);
       }
-    }
-    catch (IOException e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
     return null;
@@ -125,14 +122,13 @@ public class MoreaFileTemplateUtil {
     try {
       BufferedReader reader = new BufferedReader(new InputStreamReader(psiFile.getVirtualFile().getInputStream()));
       String line = reader.readLine();
-      while(line != null && !line.startsWith("morea_type")) {
+      while (line != null && !line.startsWith("morea_type")) {
         line = reader.readLine();
       }
       if (line != null) {
         return line.substring(line.indexOf(' ') + 1);
       }
-    }
-    catch (IOException e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
     return null;
@@ -151,7 +147,9 @@ public class MoreaFileTemplateUtil {
         ids = new ArrayList<String>();
         moreaIds.put(type, ids);
       }
-      ids.add(id);
+      if (!ids.contains(id)) {
+        ids.add(id);
+      }
     }
   }
 
@@ -163,5 +161,28 @@ public class MoreaFileTemplateUtil {
   public static List<String> getModuleIds(Project project) {
     buildIds(project);
     return moreaIds.get(MODULE);
+  }
+
+  /**
+   * Returns the Morea Ids for the given type in the given project.
+   *
+   * @param project the project to search in.
+   * @param type    One of the following MODULE, OUTCOME, READING, EXERCISE, ASSESSMENT, or PREREQUISITE.
+   * @return A list of the ids as Strings.
+   */
+  public static List<String> getIds(Project project, String type) {
+    buildIds(project);
+    return moreaIds.get(type);
+  }
+
+  public static List<String> getMoreaTypes() {
+    List<String> retVal = new ArrayList<String>();
+    retVal.add(MODULE);
+    retVal.add(ASSESSMENT);
+    retVal.add(EXPERIENCE);
+    retVal.add(OUTCOME);
+    retVal.add(READING);
+    retVal.add(PREREQUISITE);
+    return retVal;
   }
 }
